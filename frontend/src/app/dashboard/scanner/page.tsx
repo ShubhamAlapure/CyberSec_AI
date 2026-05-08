@@ -17,7 +17,8 @@ export default function VulnerabilityScannerPage() {
     setIsScanning(true);
     setIsScanning(true);
     try {
-      const response = await fetch("http://localhost:8000/api/scan/vulnerability", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://backend-five-brown-palvp06slw.vercel.app";
+      const response = await fetch(`${API_URL}/api/scan/vulnerability`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

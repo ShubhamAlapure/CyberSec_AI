@@ -17,7 +17,8 @@ export default function UrlAnalyzerPage() {
     setIsScanning(true);
     setIsScanning(true);
     try {
-      const response = await fetch("http://localhost:8000/api/scan/url", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://backend-five-brown-palvp06slw.vercel.app";
+      const response = await fetch(`${API_URL}/api/scan/url`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
